@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  cursor: none; /* Hide default cursor */
+  font-family: "Quicksand", sans-serif;
+}
+
+
+body {
+  overflow-x: hidden;
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  cursor: none; /* Hide default cursor */
+  position: relative;
+  background-color: black;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide default cursor on interactive elements */
+a,
+button,
+input,
+textarea,
+select {
+  cursor: none;
+  font-family: inherit; /* Inherit Quicksand */
+}
+
+/* Section styling */
+section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: inherit; /* Ensure Quicksand is inherited */
+}
+
+.panel {
+  width: 100%;
+  height: 100vh;
+}
+
+.pin-spacer {
+  height: 200vh;
+}
+
+/* Show default cursor on mobile */
+@media (max-width: 768px) {
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    cursor: auto;
+  }
+}
+
+/* Responsive text sizing */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2.5rem !important;
+    font-weight: 600; /* Semi-bold for better readability */
+  }
+
+  h2 {
+    font-size: 2rem !important;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 1rem !important;
+    font-weight: 400; /* Regular weight */
+  }
+
+  .panel-title {
+    font-size: 2rem !important;
+    font-weight: 600;
+  }
+
+  .panel-desc {
+    font-size: 1rem !important;
+    font-weight: 400;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    font-family: 'Quicksand', sans-serif;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Font weight helper classes */
+.font-thin {
+  font-weight: 300 !important;
+}
+.font-normal {
+  font-weight: 400 !important;
+}
+.font-medium {
+  font-weight: 500 !important;
+}
+.font-semibold {
+  font-weight: 600 !important;
+}
+.font-bold {
+  font-weight: 700 !important;
+}
+
+/* Disable default cursor */
+html, body, * {
+  cursor: none !important;
+}
+
+/* Optional: Better visibility on dark backgrounds */
+.cursor-inner {
+  mix-blend-mode: difference;
+}
+
+.cursor-outer {
+  mix-blend-mode: difference;
+  opacity: 0.5;
+}
+
+/* For interactive elements */
+a, button, input, textarea, [data-cursor-hover] {
+  cursor: none !important;
+}
