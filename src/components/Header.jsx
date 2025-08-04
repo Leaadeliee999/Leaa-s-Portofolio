@@ -16,8 +16,8 @@ const Header = () => {
   const navItems = [
     { name: "Home", id: "Home" },
     { name: "About", id: "About" },
-    { name: "Projects", id: "Projects" },
     { name: "Skills", id: "skills" }, 
+    { name: "Projects", id: "Projects" },
     { name: "Contact", id: "Contact" }
   ];
 

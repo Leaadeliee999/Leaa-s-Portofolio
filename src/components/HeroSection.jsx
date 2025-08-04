@@ -31,7 +31,7 @@ const HeroSection = () => {
                     duration: 1.5,
                 }}
                 className="text-xl md:text-1xl lg:text-2xl text-purple-200 max-w-2xl">
-                    Saya Adelia, pelajar kelas XII dari SMK Negeri 1 Kepanjen, Program Keahlian Teknik Komputer dan Jaringan. Saya mengikuti Praktik Kerja Lapangan sebagai bagian dari proses pembelajaran untuk menambah wawasan, melatih keterampilan, dan memahami langsung dinamika dunia kerja di bidang TIK.
+                    Halo, saya Adelia, siswi kelas XII SMK Negeri 1 Kepanjen jurusan Teknik Komputer dan Jaringan. Portofolio ini saya buat untuk mendokumentasikan proses belajar dan pengalaman saya selama mengikuti program magang di dunia kerja.
                 </motion.p>
             </div>
 

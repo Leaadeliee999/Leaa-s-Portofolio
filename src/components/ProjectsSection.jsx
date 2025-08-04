@@ -12,32 +12,32 @@ const ProjectsSection = () => {
     const horizontalRef = useRef(null);
     const magneticElements = useRef([]);
 
-    const projectImages = [
-        {
-            id: 1,
-            title: "Math Brain",
-            imageSrc: "/images/project-1.png",
-            description: "Game Matematika menyenangkan untuk anak Sekolah Dasar.",
-            tags: ["React", "JavaScript", "CSS"],
-            live: "#"
-        },
-        {
-            id: 2,
-            title: "Puff Go",
-            imageSrc: "/images/project-2.png",
-            description: "Game kasual seru! Terbangkan karaktermu melewati rintangan.",
-            tags: ["React", "JavaScript", "CSS"],
-            live: "#"
-        },
-        {
-            id: 3,
-            title: "Canvas Conquest",
-            imageSrc: "/images/project-3.png",
-            description: "Game Puzzle yang bertema lukisan estetik.",
-            tags: ["React", "JavaScript", "CSS"],
-            live: "#"
-        }
-    ];
+const projectImages = [
+    {
+        id: 1,
+        title: "Math Brain",
+        imageSrc: "/images/project-1.png",
+        description: "Game Matematika menyenangkan untuk anak Sekolah Dasar.",
+        tags: ["React", "JavaScript", "CSS"],
+        live: "https://gamemathbrain-main.vercel.app"
+    },
+    {
+        id: 2,
+        title: "Puff Go",
+        imageSrc: "/images/project-2.png",
+        description: "Game kasual seru! Terbangkan karaktermu melewati rintangan.",
+        tags: ["React", "JavaScript", "CSS"],
+        live: "https://puff-go.vercel.app"
+    },
+    {
+        id: 3,
+        title: "Canvas Conquest",
+        imageSrc: "/images/project-3.png",
+        description: "Game Puzzle yang bertema lukisan estetik.",
+        tags: ["React", "JavaScript", "CSS"],
+        live: "https://canvas-conquest2.vercel.app"
+    }
+];
 
     useEffect(() => {
         const elements = magneticElements.current;

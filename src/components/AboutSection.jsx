@@ -106,7 +106,10 @@ const AboutSection = () => {
                 className="absolute lg:bottom-[-20rem] md:bottom-[-10rem] bottom-[-20rem] left-0 w-full flex md:flex-row flex-col justify-between lg:px-24 px-5 items-center opacity-0"
             >
                 <h3 className="text-sm md:text-2xl font-bold text-purple-200 z-50 lg:max-w-[45rem] max-w-[27rem] tracking-wider md:mt-20 sm:mt-[-40rem] mt-[-32rem]">
-                    haloooo semuaaa, perkenalkan namaku adeliaaa biasa dipanggil adel, usia ku sekarang 17 tahun, aku saat ini baru saja naik kelas 12 dan sedang magang di perusahaan Software yaitu Exp.Inc selama 10 bulan
+                    Halo! Saya Adelia, siswi kelas XII SMK Negeri 1 Kepanjen, jurusan Teknik Komputer dan Jaringan.
+Saya sedang PKL di Exp.Inc, perusahaan pengembang game dan aplikasi web.
+
+Di sekolah saya belajar perangkat keras dan jaringan. Melalui PKL, saya mulai mengenal dunia pemrograman dan web, jadi pengalaman baru yang menantang.
                 </h3>
 
                 <img className="lg:h-[40rem] md:h-[25rem] h-[20rem] mix-blend-lighten" src="images/person.png" alt="profile-img" />
