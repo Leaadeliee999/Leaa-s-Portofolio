@@ -2,15 +2,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiGithub, FiLinkedin, FiInstagram, FiMenu, FiX } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { Link } from 'react-scroll';
+import { Toaster } from 'react-hot-toast';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [contactFormOpen, setContactFormOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
   const [activeSection, setActiveSection] = useState("Home");
 
   const navItems = [
@@ -44,36 +39,11 @@ const Header = () => {
   }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
-  
-  const openContactForm = () => {
-    setContactFormOpen(true);
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => {
-      document.getElementById('name')?.focus();
-    }, 100);
-  };
-  
-  const closeContactForm = () => {
-    setContactFormOpen(false);
-    document.body.style.overflow = 'auto';
-  };
-
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setFormData(prev => ({ ...prev, [id]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const subject = `Message from ${formData.name}`;
-    const body = `${formData.message}%0D%0A%0D%0AReply to: ${formData.email}`;
-    window.location.href = `mailto:leaadeliee77@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setFormData({ name: '', email: '', message: '' });
-    closeContactForm();
-  };
 
   return (
     <>
+      <Toaster position="top-right" />
+      
       <header className="fixed w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
           <motion.div
@@ -157,16 +127,6 @@ const Header = () => {
             >
               <FiInstagram className="w-5 h-5" />
             </motion.a>
-
-            <motion.button
-              onClick={openContactForm}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.75 }}
-              className="ml-4 px-4 py-2 rounded-xl bg-gradient-to-t from-gray-400 to-gray-100 text-violet-700 font-bold hover:from-violet-700 hover:to-purple-700 hover:text-white transition-all duration-500 shadow-sm"
-            >
-              Hire Me
-            </motion.button>
           </div>
 
           <div className="md:hidden flex items-center">
@@ -223,119 +183,12 @@ const Header = () => {
                       <FiInstagram className="h-6 w-6" />
                     </a>
                   </div>
-
-                  <button
-                    onClick={() => {
-                      toggleMenu();
-                      openContactForm();
-                    }}
-                    className="mt-4 w-full px-4 py-2 rounded-lg bg-gradient-to-r from-violet-600 to-violet-400 font-bold text-white shadow-md hover:shadow-lg transition-all"
-                  >
-                    Contact Me
-                  </button>
                 </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </header>
-
-      {/* Fixed Contact Form Modal */}
-      <AnimatePresence>
-        {contactFormOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000] flex items-center justify-center p-4"
-            onClick={closeContactForm}
-          >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              transition={{ 
-                type: "spring", 
-                damping: 25, 
-                stiffness: 400,
-                duration: 0.3
-              }}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-md mx-4 my-8 border border-gray-200 dark:border-gray-700"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-                <h2 className="text-xl font-bold text-gray-800 dark:text-gray-300">
-                  Get In Touch
-                </h2>
-                <button 
-                  onClick={closeContactForm}
-                  className="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                >
-                  <FiX className="w-5 h-5 text-gray-800 dark:text-gray-300" />
-                </button>
-              </div>
-
-              <form onSubmit={handleSubmit} className="p-6 space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    required
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-500/30 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200 caret-violet-500"
-                    placeholder="Your name"
-                    autoFocus
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    required
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-500/30 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200 caret-violet-500"
-                    placeholder="your@email.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    required
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 dark:focus:ring-violet-500/30 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200 caret-violet-500"
-                    placeholder="Your message..."
-                  />
-                </div>
-
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full px-4 py-2 bg-gradient-to-r from-violet-600 to-violet-500 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all"
-                >
-                  Send Message
-                </motion.button>
-              </form>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 };
